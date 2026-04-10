@@ -1,24 +1,23 @@
 
 
-public class HelloWorld {
+public class HelloWorld{
     public static void main(String[] args) {
-
         if (args.length == 0) {
             System.out.println("Hello, World!");
-            return;
-        }
+        } else {
+            StringBuilder nameBuilder = new StringBuilder();
 
-        StringBuilder names = new StringBuilder();
-
-        for (int i = 0; i < args.length; i++) {
-            names.append(args[i]);
-
-            if (i < args.length - 1) {
-                names.append(", ");
+            for (String name : args) {
+                nameBuilder.append(name).append(", ");
             }
+
+            String finalNames = "";
+            if (nameBuilder.length() > 0) {
+                finalNames = nameBuilder.substring(0, nameBuilder.length() - 2);
+            }
+
+            System.out.println("Hello, " + finalNames + "!");
         }
-
-        System.out.println("Hello, " + names + "!");
-
     }
 }
+
